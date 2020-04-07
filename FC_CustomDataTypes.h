@@ -10,16 +10,31 @@
 #include "arduino.h"
 
 
-class floatByte
+class ByteType
 {
- private:
+public:
+	virtual ~ByteType()
+	{
+	}
+	
+	virtual uint8_t* byteArr() = 0;
+};
+
+
+
+class floatByte : public ByteType
+{
+public:
+	static const uint8_t AmtOfBytes = 4;
+	
+private:
 	union
 	{
 		float value;
-		uint8_t byte[4];
+		uint8_t byte[AmtOfBytes];
 	}data;
 
- public:
+public:
 	floatByte(float v=0)
 	{
 		data.value = v;
@@ -30,7 +45,7 @@ class floatByte
 		return data.value;
 	}
 
-	uint8_t* byteArr()
+	uint8_t* byteArr() override
 	{
 		return data.byte;
 	}
@@ -39,16 +54,19 @@ class floatByte
 
 
 
-class uint32Byte
+class uint32Byte : public ByteType
 {
- private:
+public:
+	static const uint8_t AmtOfBytes = 4;
+	
+private:
 	union
 	{
 		uint32_t value;
-		uint8_t byte[4];
+		uint8_t byte[AmtOfBytes];
 	}data;
 
- public:
+public:
 	uint32Byte(uint32_t v=0)
 	{
 		data.value = v;
@@ -59,7 +77,7 @@ class uint32Byte
 		return data.value;
 	}
 
-	uint8_t* byteArr()
+	uint8_t* byteArr() override
 	{
 		return data.byte;
 	}
@@ -68,16 +86,19 @@ class uint32Byte
 
 
 
-class int32Byte
+class int32Byte : public ByteType
 {
- private:
+public:
+	static const uint8_t AmtOfBytes = 4;
+	
+private:
 	union
 	{
 		int32_t value;
-		uint8_t byte[4];
+		uint8_t byte[AmtOfBytes];
 	}data;
 
- public:
+public:
 	int32Byte(int32_t v=0)
 	{
 		data.value = v;
@@ -88,7 +109,7 @@ class int32Byte
 		return data.value;
 	}
 
-	uint8_t* byteArr()
+	uint8_t* byteArr() override
 	{
 		return data.byte;
 	}
@@ -97,16 +118,19 @@ class int32Byte
 
 
 
-class uint16Byte
+class uint16Byte : public ByteType
 {
- private:
+public:
+	static const uint8_t AmtOfBytes = 2;
+	
+private:
 	union
 	{
 		uint16_t value;
-		uint8_t byte[2];
+		uint8_t byte[AmtOfBytes];
 	}data;
 
- public:
+public:
 	uint16Byte(uint16_t v=0)
 	{
 		data.value = v;
@@ -117,7 +141,7 @@ class uint16Byte
 		return data.value;
 	}
 
-	uint8_t* byteArr()
+	uint8_t* byteArr() override
 	{
 		return data.byte;
 	}
@@ -125,16 +149,19 @@ class uint16Byte
 
 
 
-class int16Byte
+class int16Byte : public ByteType
 {
- private:
+public:
+	static const uint8_t AmtOfBytes = 2;
+	
+private:
 	union
 	{
 		int16_t value;
-		uint8_t byte[2];
+		uint8_t byte[AmtOfBytes];
 	}data;
 
- public:
+public:
 	int16Byte(int16_t v=0)
 	{
 		data.value = v;
@@ -145,7 +172,7 @@ class int16Byte
 		return data.value;
 	}
 
-	uint8_t* byteArr()
+	uint8_t* byteArr() override
 	{
 		return data.byte;
 	}
