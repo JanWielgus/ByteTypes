@@ -31,6 +31,14 @@ void loop()
 	Serial.print("testowa: ");
 	Serial.println(testowa);
 	
+	
+	// bitByte compilation test
+	bitByte testBools;
+	testBools[0] = false;
+	testBools[1] = true;
+	uint8_t* testPtr = testBools.byteArr();
+	
+	
 	delay(2000);
 	
 }

@@ -180,12 +180,29 @@ public:
 
 
 
-union bitByte
+class bitByte : public ByteType
 {
-	bool value[8];
-	uint8_t byte;
+public:
+	static const uint8_t AmtOfBytes = 2;
+	
+private:
+	union
+	{
+		bool value[8];
+		uint8_t byte[AmtOfBytes];
+	}data;
+	
+public:
+	bool& operator[](uint8_t index)
+	{
+		return data.value[index];
+	}
+	
+	uint8_t* byteArr() override
+	{
+		return data.byte;
+	}
 };
-
 
 
 
