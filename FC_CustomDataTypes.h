@@ -13,6 +13,12 @@
 class ByteType
 {
 public:
+	uint8_t AmtOfBytes;
+
+	ByteType(uint8_t amtOfBytes)
+		: AmtOfBytes(amtOfBytes)
+	{}
+
 	virtual ~ByteType()
 	{
 	}
@@ -25,17 +31,18 @@ public:
 class floatByte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 4;
-	
+	static const uint8_t FloatByteSize = 4;
+
 private:
 	union
 	{
 		float value;
-		uint8_t byte[AmtOfBytes];
+		uint8_t byte[FloatByteSize];
 	}data;
 
 public:
-	floatByte(float v=0)
+	floatByte(float v = 0)
+		: ByteType(FloatByteSize)
 	{
 		data.value = v;
 	}
@@ -57,17 +64,19 @@ public:
 class uint32Byte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 4;
+	static const uint8_t Uint32ByteSize = 4;
 	
 private:
 	union
 	{
 		uint32_t value;
-		uint8_t byte[AmtOfBytes];
+		//uint8_t byte[AmtOfBytes];
+		uint8_t* byte = new uint8_t[Uint32ByteSize];
 	}data;
 
 public:
 	uint32Byte(uint32_t v=0)
+		:ByteType(Uint32ByteSize)
 	{
 		data.value = v;
 	}
@@ -89,17 +98,18 @@ public:
 class int32Byte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 4;
+	static const uint8_t Int32ByteSize = 4;
 	
 private:
 	union
 	{
 		int32_t value;
-		uint8_t byte[AmtOfBytes];
+		uint8_t byte[Int32ByteSize];
 	}data;
 
 public:
 	int32Byte(int32_t v=0)
+		:ByteType(Int32ByteSize)
 	{
 		data.value = v;
 	}
@@ -121,17 +131,18 @@ public:
 class uint16Byte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 2;
+	static const uint8_t Uint16ByteSize = 2;
 	
 private:
 	union
 	{
 		uint16_t value;
-		uint8_t byte[AmtOfBytes];
+		uint8_t byte[Uint16ByteSize];
 	}data;
 
 public:
 	uint16Byte(uint16_t v=0)
+		:ByteType(Uint16ByteSize)
 	{
 		data.value = v;
 	}
@@ -152,17 +163,18 @@ public:
 class int16Byte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 2;
+	static const uint8_t Int16ByteSize = 2;
 	
 private:
 	union
 	{
 		int16_t value;
-		uint8_t byte[AmtOfBytes];
+		uint8_t byte[Int16ByteSize];
 	}data;
 
 public:
 	int16Byte(int16_t v=0)
+		:ByteType(Int16ByteSize)
 	{
 		data.value = v;
 	}
@@ -183,16 +195,21 @@ public:
 class bitByte : public ByteType
 {
 public:
-	static const uint8_t AmtOfBytes = 2;
+	static const uint8_t BitByteByteSize = 2;
 	
 private:
 	union
 	{
 		bool value[8];
-		uint8_t byte[AmtOfBytes];
+		uint8_t byte[BitByteByteSize];
 	}data;
 	
 public:
+	bitByte()
+		:ByteType(BitByteByteSize)
+	{
+	}
+
 	bool& operator[](uint8_t index)
 	{
 		return data.value[index];
