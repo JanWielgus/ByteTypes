@@ -19,7 +19,7 @@ public:
 		: AmtOfBytes(amtOfBytes)
 	{}
 
-	virtual ~ByteType()
+	virtual ~ByteType() = 0
 	{
 	}
 	
