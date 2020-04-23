@@ -19,7 +19,7 @@ public:
 		: AmtOfBytes(amtOfBytes)
 	{}
 
-	virtual ~ByteType() = 0
+	virtual ~ByteType()
 	{
 	}
 	
@@ -195,7 +195,7 @@ public:
 class bitByte : public ByteType
 {
 public:
-	static const uint8_t BitByteByteSize = 2;
+	static const uint8_t BitByteByteSize = 1;
 	
 private:
 	union
