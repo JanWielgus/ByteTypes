@@ -27,7 +27,7 @@ public:
 	{
 	}
 
-	byteType(T value = 0)
+	byteType(T value)
 	{
 		data.value = value;
 	}
