@@ -8,8 +8,7 @@
 	Divide basic data types to uint8_ts array
 */
 
-#include "FC_CustomDataTypes.h"
-
+#include "ByteTypes.h"
 
 
 void setup()
@@ -27,8 +26,8 @@ void loop()
 	Serial.println(zmienna);
 	
 	uint16Byte testowa;
-	testowa.byteArr()[0] = zmienna.byteArr()[0];
-	testowa.byteArr()[1] = zmienna.byteArr()[1];
+	testowa.byteArray()[0] = zmienna.byteArray()[0];
+	testowa.byteArray()[1] = zmienna.byteArray()[1];
 	// teraz testowa powinna miec taka sama wartosc jak zmienna
 	Serial.print("testowa: ");
 	Serial.println(testowa);
@@ -38,7 +37,7 @@ void loop()
 	bitByte testBools;
 	testBools[0] = false;
 	testBools[1] = true;
-	uint8_t* testPtr = testBools.byteArr();
+	uint8_t* testPtr = testBools.byteArray();
 	
 	
 	delay(2000);

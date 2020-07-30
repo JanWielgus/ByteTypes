@@ -8,7 +8,7 @@
 #ifndef BYTETYPES_H
 #define BYTETYPES_H
 
-#include "IByteType.h"
+#include <IByteType.h>
 
 
 template <class T, int SizeInBytes>
