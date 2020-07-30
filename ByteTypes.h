@@ -97,6 +97,16 @@ public:
 	{
 		return data.bits[index];
 	}
+
+	bitByte& operator=(const bitByte& other)
+	{
+		if (this != &other)
+		{
+			data.byte = other.data.byte;
+		}
+
+		return *this;
+	}
 };
 
 
