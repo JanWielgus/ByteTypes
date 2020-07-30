@@ -1,9 +1,11 @@
 /*
-    Name:       FC_CustomDataTypes.ino
+    Name:       ByteTypes_example.ino
     Created:	03/06/2019 13:58:02
+	Modified:	30/07/2020
     Author:     Jan Wielgus
 	
 	New data types used in the communication
+	Divide basic data types to uint8_ts array
 */
 
 #include "FC_CustomDataTypes.h"
