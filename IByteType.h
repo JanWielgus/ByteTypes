@@ -8,6 +8,10 @@
 #ifndef IBYTETYPE_H
 #define IBYTETYPE_H
 
+#ifdef ARDUINO
+    #include <arduino.h>
+#endif
+
 
 class IByteType
 {
