@@ -20,7 +20,7 @@ public:
 
     virtual uint8_t* byteArray() = 0;
     virtual const uint8_t* byteArray() const = 0;
-    virtual uint8_t byteSize() = 0;
+    virtual uint8_t byteSize() const = 0;
 };
 
 

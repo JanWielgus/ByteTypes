@@ -44,7 +44,7 @@ public:
 		return data.bytes;
 	}
 
-	uint8_t byteSize() override
+	uint8_t byteSize() const override
 	{
 		return SizeInBytes;
 	}
@@ -63,6 +63,11 @@ public:
 
 		return *this;
 	}
+
+
+	// TODO: add operator++ (post and pre)
+	// TODO: add += operator (and others)
+	// TODO: add other useful operators
 };
 
 
@@ -88,7 +93,7 @@ public:
 		return &data.byte;
 	}
 
-	uint8_t byteSize() override
+	uint8_t byteSize() const override
 	{
 		return 1;
 	}
