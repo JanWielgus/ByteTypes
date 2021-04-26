@@ -8,7 +8,8 @@
 	Divide basic data types to uint8_ts array
 */
 
-#include "ByteTypes.h"
+#include <byteType.h>
+#include <bitByte.h>
 
 
 void setup()
@@ -35,8 +36,8 @@ void loop()
 	
 	// bitByte compilation test
 	bitByte testBools;
-	testBools[0] = false;
-	testBools[1] = true;
+	testBools.bitArray()[0] = false;
+	testBools.bitArray()[1] = true;
 	uint8_t* testPtr = testBools.byteArray();
 	
 	
